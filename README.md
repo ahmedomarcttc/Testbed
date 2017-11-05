@@ -12,6 +12,6 @@ Download testbed file from
 
 Run the initovs.sh bash script
 $ chmod +x testbed/*.sh
-$ ./myproj/initovs.sh
+$ ./testbed/init-testbed.sh
 
 Initial Configuration is done!
