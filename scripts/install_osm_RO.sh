@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "Step 1: Updating & Installing make git python tox libmysqlclient-dev"
-sudo apt-get update
-sudo apt-get install -y make git python tox libmysqlclient-dev
+# echo "Step 1: Updating & Installing make git python tox libmysqlclient-dev"
+# sudo apt-get update
+# sudo apt-get install -y make git python tox libmysqlclient-dev
 
-echo "Step 2: Creating Folder osm and cloning openvim to install lib_osm_openvim"
+echo "Creating Folder osm and cloning openvim to install lib_osm_openvim"
 if [ ! -d /home/$(whoami)/osm ]; then
 	mkdir osm;
 fi
@@ -20,7 +20,7 @@ OSMLIBOVIM_PATH=`python -c 'import lib_osm_openvim; print lib_osm_openvim.__path
 # -U and -P are the admin database user/password. Normally "-U root" without password "executed as root"
 sudo ${OSMLIBOVIM_PATH}/database_utils/install-db-server.sh -U root [-P passwd] -u mano -p manopw -d mano_vim_db --updatedb
 
-echo "Step 3: Cloning and installing OpenMANO RO"
+echo "Cloning and installing OSM RO"
 # RO (openmano)
 pushd osm
 git clone https://osm.etsi.org/gerrit/osm/RO.git
