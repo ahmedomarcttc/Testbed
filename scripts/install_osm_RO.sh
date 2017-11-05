@@ -8,11 +8,11 @@ echo "Creating Folder osm and cloning openvim to install lib_osm_openvim"
 if [ ! -d /home/$(whoami)/osm ]; then
 	mkdir osm;
 fi
-pushd osm
+cd osm
 git clone https://osm.etsi.org/gerrit/osm/openvim
 git -C openvim checkout 005a9dc  # this is temporal, because last version contains error at Makefile
 sudo make -C openvim lite
-popd
+cd
 # Use this line to check if it is installed and where
 sudo python -c 'import lib_osm_openvim; print lib_osm_openvim.__path__[0]'
 # Install database of ovim library
@@ -22,9 +22,9 @@ sudo ${OSMLIBOVIM_PATH}/database_utils/install-db-server.sh -U root [-P passwd] 
 
 echo "Cloning and installing OSM RO"
 # RO (openmano)
-pushd osm
+cd osm
 git clone https://osm.etsi.org/gerrit/osm/RO.git
 cd RO
 git checkout v2.0
 sudo scripts/install-openmano.sh -u root -p root --noclone --forcedb --force --develop
-popd
+cd
