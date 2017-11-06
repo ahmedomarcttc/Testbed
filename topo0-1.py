@@ -53,12 +53,6 @@ class DemoTopology(DCNetwork):
         #self.sw2 = self.addSwitch("s2")
 
     def _create_pops(self):
-        # two PoPs for the SONATA SP
-        #self.pop1 = self.addDatacenter("sonata-pop1")
-        #self.pop2 = self.addDatacenter("sonata-pop2")
-        # two PoPs for the OSM SP
-        #self.pop3 = self.addDatacenter("osm-pop1")
-        #self.pop4 = self.addDatacenter("osm-pop2")
         self.pop1 = self.addDatacenter("osm-pop1")
         self.pop2 = self.addDatacenter("osm-pop2")
 
