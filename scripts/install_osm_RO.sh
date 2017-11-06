@@ -4,6 +4,7 @@
 # sudo apt-get update
 # sudo apt-get install -y make git python tox libmysqlclient-dev
 
+cd
 echo "Creating Folder osm and cloning openvim to install lib_osm_openvim"
 if [ ! -d /home/$(whoami)/osm ]; then
 	mkdir osm;
