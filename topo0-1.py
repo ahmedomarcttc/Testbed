@@ -59,7 +59,7 @@ class DemoTopology(DCNetwork):
         # two PoPs for the OSM SP
         #self.pop3 = self.addDatacenter("osm-pop1")
         #self.pop4 = self.addDatacenter("osm-pop2")
-	    self.pop1 = self.addDatacenter("osm-pop1")
+        self.pop1 = self.addDatacenter("osm-pop1")
         self.pop2 = self.addDatacenter("osm-pop2")
 
     def _create_links(self):
