@@ -7,6 +7,7 @@ from emuvim.api.openstack.openstack_api_endpoint import OpenstackApiEndpoint
 logging.basicConfig(level=logging.INFO)
 setLogLevel('info')  # set Mininet loglevel
 logging.getLogger('werkzeug').setLevel(logging.DEBUG)
+
 logging.getLogger('api.openstack.base').setLevel(logging.DEBUG)
 logging.getLogger('api.openstack.compute').setLevel(logging.DEBUG)
 logging.getLogger('api.openstack.keystone').setLevel(logging.DEBUG)
@@ -18,7 +19,7 @@ logging.getLogger('api.openstack.glance').setLevel(logging.DEBUG)
 logging.getLogger('api.openstack.helper').setLevel(logging.DEBUG)
 
 
-def create_topology():
+def DemoTopology():
     net = DCNetwork(monitor=True, enable_learning=True)
 
     dc1 = net.addDatacenter("osm-pop1")
@@ -32,12 +33,16 @@ def create_topology():
     # add OpenStack-like APIs to the emulated DC
     api1 = OpenstackApiEndpoint("127.0.0.1", 6001)
     api2 = OpenstackApiEndpoint("127.0.0.1", 6002)
+
     api1.connect_datacenter(dc1)
     api2.connect_datacenter(dc2)
+
     api1.start()
     api2.start()
+
     api1.connect_dc_network(net)
     api2.connect_dc_network(net)
+
     # add the command line interface endpoint to the emulated DC (REST API)
     Rapi = RestApiEndpoint("0.0.0.0", 5001)
     Rapi.connectDCNetwork(net)
@@ -52,7 +57,7 @@ def create_topology():
 
 
 def main():
-    create_topology()
+    DemoTopology()
 
 
 if __name__ == '__main__':

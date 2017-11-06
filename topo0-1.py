@@ -3,8 +3,7 @@ from mininet.log import setLogLevel
 from emuvim.dcemulator.net import DCNetwork
 from emuvim.api.openstack.openstack_api_endpoint import OpenstackApiEndpoint
 from emuvim.api.rest.rest_api_endpoint import RestApiEndpoint
-from emuvim.api.sonata import SonataDummyGatekeeperEndpoint
-
+#from emuvim.api.sonata import SonataDummyGatekeeperEndpoint
 
 logging.basicConfig(level=logging.INFO)
 setLogLevel('info')  # set Mininet loglevel
@@ -30,8 +29,8 @@ class DemoTopology(DCNetwork):
         Initialize multi PoP emulator network.
         """
         super(DemoTopology, self).__init__(
-            monitor=False,
-            enable_learning=False
+            monitor=True,
+            enable_learning=True
         )
         # define members for later use
         self.pop1 = None
@@ -60,7 +59,7 @@ class DemoTopology(DCNetwork):
         # two PoPs for the OSM SP
         #self.pop3 = self.addDatacenter("osm-pop1")
         #self.pop4 = self.addDatacenter("osm-pop2")
-	self.pop1 = self.addDatacenter("osm-pop1")
+	    self.pop1 = self.addDatacenter("osm-pop1")
         self.pop2 = self.addDatacenter("osm-pop2")
 
     def _create_links(self):
