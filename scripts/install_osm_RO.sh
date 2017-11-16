@@ -27,5 +27,6 @@ cd osm
 git clone https://osm.etsi.org/gerrit/osm/RO.git
 cd RO
 git checkout v2.0
-sudo scripts/install-openmano.sh -u root -p root --noclone --forcedb --force --develop
+#sudo scripts/install-openmano.sh -u root -p root --develop --noclone --forcedb --force
+sudo scripts/install-openmano.sh -u root -p root --develop --noclone --forcedb --no-install-packages
 cd
