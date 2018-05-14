@@ -18,14 +18,14 @@ sudo pip3 install python-openstackclient
 sudo pip3 install python-heatclient
 sudo pip3 install python-neutronclient
 
-cd /home/$(whoami)
-sh $(whoami)/scripts/vim-emu-install.sh
+cd ~/testbed
+sh scripts/vim-emu-install.sh
 
-# cd /home/$(whoami)
-# sh $(whoami)/scripts/install_son-cli.sh
+# cd /home/$(whoami)/testbed
+# sh scripts/install_son-cli.sh
 
-cd /home/$(whoami)
-sh $(whoami)/scripts/install_osm_RO.sh
+cd ~/testbed
+sh scripts/install_osm_RO.sh
 
-# cd /home/$(whoami)/vnfs
-# sudo ./build.sh
+# cd /home/$(whoami)/testbed
+# sudo ./vnfs/build.sh
